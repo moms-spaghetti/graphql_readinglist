@@ -89,6 +89,7 @@ Backend
 
    ```sh
    MONGOOSE_URL=
+   PORT=4000
    ```
 
 8. Start the application
