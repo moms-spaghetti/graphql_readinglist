@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+
+//components
+import BookList from "./components/BookList";
+import AddBook from "./components/AddBook";
+import AddAuthor from "./components/AddAuthor";
+
+//apollo
+const client = new ApolloClient({
+  uri: process.env.REACT_APP_BACKEND_URL,
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div id="main">
+        <h1>Reading List</h1>
+        <BookList />
+        <div id="form-container">
+          <AddBook />
+          <AddAuthor />
+        </div>
+      </div>
+    </ApolloProvider>
   );
 }
 
