@@ -4,8 +4,8 @@ import { flowRight as compose } from "lodash";
 import { getAuthorsQuery, addAuthorMutation } from "../queries/queries";
 
 const initForm = {
-  name: null,
-  age: null,
+  name: "",
+  age: "",
 };
 
 const AddAuthor = (props) => {
